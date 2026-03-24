@@ -1,0 +1,18 @@
+{% extends 'base_instructor.html' %}
+
+{% block content %}
+
+<h2>Add Course</h2>
+
+<form method="POST">
+    {% csrf_token %}
+
+    <input type="text" name="title" class="form-control mb-3" placeholder="Course Title">
+
+    <textarea name="description" class="form-control mb-3" placeholder="Description"></textarea>
+
+    <button class="btn btn-success">Create</button>
+
+</form>
+
+{% endblock %}

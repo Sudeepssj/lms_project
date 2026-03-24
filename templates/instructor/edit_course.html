@@ -1,0 +1,18 @@
+{% extends 'base_instructor.html' %}
+
+{% block content %}
+
+<h2>Edit Course</h2>
+
+<form method="POST">
+    {% csrf_token %}
+
+    <input type="text" name="title" value="{{ course.title }}" class="form-control mb-3">
+
+    <textarea name="description" class="form-control mb-3">{{ course.description }}</textarea>
+
+    <button class="btn btn-primary">Update</button>
+
+</form>
+
+{% endblock %}

@@ -1,0 +1,58 @@
+{% extends 'base_admin.html' %}
+
+{% block content %}
+
+<h2 class="mb-4 font-bold text-2xl">Admin Dashboard</h2>
+
+<!-- STATS CARDS -->
+<div class="row mb-4">
+
+    <div class="col-md-6">
+        <div class="card shadow p-4 text-center card-hover">
+            <i class="fa fa-user-graduate text-primary text-3xl mb-2"></i>
+            <h5>Total Students</h5>
+            <h2>{{ total_students }}</h2>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="card shadow p-4 text-center card-hover">
+            <i class="fa fa-chalkboard-teacher text-success text-3xl mb-2"></i>
+            <h5>Total Instructors</h5>
+            <h2>{{ total_instructors }}</h2>
+        </div>
+    </div>
+
+</div>
+
+<!-- COURSES TABLE -->
+<div class="card shadow p-4">
+
+    <h4 class="mb-3">All Courses</h4>
+
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Course Title</th>
+                <th>Instructor</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for course in courses %}
+            <tr>
+                <td>{{ course.title }}</td>
+                <td>{{ course.instructor.username }}</td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="2">No courses available</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+
+    </table>
+
+</div>
+
+{% endblock %}
